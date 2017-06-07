@@ -203,20 +203,29 @@ namespace WeatherStation
                 {
                     for(int i = 0; i < dataBufferLineSplit.Count(); i++)
                     {
-                        
-                        if (dataBufferLineSplit[i].Contains("Temperature"))
+                        try
                         {
-                            string value = dataBufferLineSplit[i].Split(' ')[1].Replace('.', ',');
-                            TemperatuurMeasurement tempM = new TemperatuurMeasurement("°C", double.Parse(value));
-                            temperatuurMeasurements.Add(tempM);
-                            weatherStationPage.TemperatureGauge.SetCurrentValue(tempM.Value);
-                        } else if (dataBufferLineSplit[i].Contains("UV index"))
+                            if (dataBufferLineSplit[i].Contains("Temperature"))
+                            {
+                                string value = dataBufferLineSplit[i].Split(' ')[1].Replace('.', ',');
+                                TemperatuurMeasurement tempM = new TemperatuurMeasurement("°C", double.Parse(value));
+                                temperatuurMeasurements.Add(tempM);
+                                weatherStationPage.TemperatureGauge.CurrentValue = tempM.Value;
+                                weatherStationPage.TempGauge.CurrentValue = tempM.Value;
+                            }
+                            else if (dataBufferLineSplit[i].Contains("UV index"))
+                            {
+                                /*string value = dataBufferLineSplit[i].Split(' ')[2].Replace('.', ',');
+                                UVindexMeasurement uvindexM = new UVindexMeasurement("", double.Parse(value));
+
+                                weatherStationPage.UVGauge.CurrentValue = uvindexM.Value;*/
+                            }
+
+                        } catch(Exception ex)
                         {
-                            string value = dataBufferLineSplit[i].Split(' ')[2].Replace('.', ',');
-                            UVindexMeasurement uvindexM = new UVindexMeasurement("", double.Parse(value));
-                            
-                            weatherStationPage.UVGauge.SetCurrentValue(uvindexM.Value);
+                            MessageBox.Show(ex.Message);
                         }
+                        
                     }
                 }
 
@@ -236,7 +245,6 @@ namespace WeatherStation
                 {
                     lblPortSatusSelector.Content = "Closed";
                 }
-
                 
             }
         }

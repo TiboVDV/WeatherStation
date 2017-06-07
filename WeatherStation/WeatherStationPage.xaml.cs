@@ -40,6 +40,7 @@ namespace WeatherStation
         //Used gauges
         private VerticalGauge temperatureGauge;
         private VerticalGauge uvGauge;
+        private HorizontalGauge tempGauge;
 
         public VerticalGauge TemperatureGauge
         {
@@ -49,6 +50,11 @@ namespace WeatherStation
         public VerticalGauge UVGauge
         {
             get { return uvGauge; }
+        }
+
+        public HorizontalGauge TempGauge
+        {
+            get { return tempGauge; }
         }
 
         public WeatherStationPage()
@@ -75,8 +81,11 @@ namespace WeatherStation
 
             uvGauge = new VerticalGauge("UV Index", "", yellowColorBrush, grayColorBrush, lightGrayColorBrush, grayColorBrush, 16, robotoFontFamily, UVIndexUsercontrol, 12, 0, 12);
 
+            tempGauge = new HorizontalGauge("Temperatuur", "°C", yellowColorBrush, grayColorBrush, lightGrayColorBrush, grayColorBrush, 16, robotoFontFamily, TemperatureHorizontalGaugeUsercontrol, 70, 0, 14);
+
             gauges.Add(temperatureGauge);
             gauges.Add(uvGauge);
+            gauges.Add(tempGauge);
         }
     }
 }

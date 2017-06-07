@@ -61,6 +61,7 @@
     <Compile Include="ExportDataPage.xaml.cs">
       <DependentUpon>ExportDataPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Classes\Gauges\HorizontalGauge.cs" />
     <Compile Include="ImportDataPage.xaml.cs">
       <DependentUpon>ImportDataPage.xaml</DependentUpon>
     </Compile>
@@ -72,6 +73,8 @@
     <Compile Include="Classes\Measurements\TemperatuurMeasurement.cs" />
     <Compile Include="Classes\Measurements\UVindexMeasurement.cs" />
     <Compile Include="Classes\Gauges\VerticalGauge.cs" />
+    <Compile Include="Classes\Gauges\MultiDataGauge.cs" />
+    <Compile Include="Classes\Gauges\SingleDataGauges.cs" />
     <Compile Include="WeatherStationPage.xaml.cs">
       <DependentUpon>WeatherStationPage.xaml</DependentUpon>
     </Compile>
