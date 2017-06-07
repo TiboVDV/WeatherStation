@@ -37,24 +37,36 @@ namespace WeatherStation
         //Used fonts
         private FontFamily robotoFontFamily = new FontFamily("Roboto");
 
-        //Used gauges
-        private VerticalGauge temperatureGauge;
-        private VerticalGauge uvGauge;
-        private HorizontalGauge tempGauge;
+        //Used gauges and graphs
+        private UVIndexGauge uvIndexGauge;
+        private VerticalGauge humidityGauge;
+        private VerticalGauge co2Gauge;
+        private VerticalGauge lightGauge;
+        private GraphGauge tempGraph;
 
-        public VerticalGauge TemperatureGauge
+        public UVIndexGauge UVIndexGauge
         {
-            get { return temperatureGauge; }
+            get { return uvIndexGauge; }
         }
 
-        public VerticalGauge UVGauge
+        public VerticalGauge HumidityGauge
         {
-            get { return uvGauge; }
+            get { return humidityGauge; }
         }
 
-        public HorizontalGauge TempGauge
+        public VerticalGauge CO2Gauge
         {
-            get { return tempGauge; }
+            get { return co2Gauge; }
+        }
+
+        public VerticalGauge LightGauge
+        {
+            get { return lightGauge; }
+        }
+
+        public GraphGauge TempGraph
+        {
+            get { return tempGraph; }
         }
 
         public WeatherStationPage()
@@ -77,15 +89,25 @@ namespace WeatherStation
         private void Grid_Initialized(object sender, EventArgs e)
         {
             //TemperatureGauge
-            temperatureGauge = new VerticalGauge("Temperatuur", "°C", yellowColorBrush, grayColorBrush, lightGrayColorBrush, grayColorBrush, 16, robotoFontFamily, TemperatureGaugeUsercontrol, 100, 0, 5);
+            //temperatureGauge = new VerticalGauge("Temperatuur", "°C", yellowColorBrush, grayColorBrush, lightGrayColorBrush, grayColorBrush, 16, robotoFontFamily, TemperatureGaugeUsercontrol, 100, 0, 5);
 
-            uvGauge = new VerticalGauge("UV Index", "", yellowColorBrush, grayColorBrush, lightGrayColorBrush, grayColorBrush, 16, robotoFontFamily, UVIndexUsercontrol, 12, 0, 12);
+            //uvGauge = new VerticalGauge("UV Index", "", yellowColorBrush, grayColorBrush, lightGrayColorBrush, grayColorBrush, 16, robotoFontFamily, UVIndexUsercontrol, 12, 0, 12);
 
-            tempGauge = new HorizontalGauge("Temperatuur", "°C", yellowColorBrush, grayColorBrush, lightGrayColorBrush, grayColorBrush, 16, robotoFontFamily, TemperatureHorizontalGaugeUsercontrol, 70, 0, 14);
+            //tempGauge = new HorizontalGauge("Temperatuur", "°C", yellowColorBrush, grayColorBrush, lightGrayColorBrush, grayColorBrush, 16, robotoFontFamily, UVIndexGaugeUsercontrol, 70, 0, 14);
 
-            gauges.Add(temperatureGauge);
-            gauges.Add(uvGauge);
-            gauges.Add(tempGauge);
+            uvIndexGauge = new UVIndexGauge("UV Index", "", lightGrayColorBrush, grayColorBrush, lightGrayColorBrush, grayColorBrush, 16, robotoFontFamily, UVIndexGaugeUsercontrol, 11, 0, 11);
+            humidityGauge = new VerticalGauge("Humidity", "%", blueColorBrush, grayColorBrush, lightGrayColorBrush, grayColorBrush, 16, robotoFontFamily, HumidityGaugeUsercontrol, 100, 0, 5);
+            co2Gauge = new VerticalGauge("CO2", "ppm", new SolidColorBrush(Color.FromRgb(114, 144, 58)), grayColorBrush, lightGrayColorBrush, grayColorBrush, 16, robotoFontFamily, CO2GaugeUsercontrol, 800, 100, 7);
+            lightGauge = new VerticalGauge("Light", "lx", yellowColorBrush, grayColorBrush, lightGrayColorBrush, grayColorBrush, 16, robotoFontFamily, LightGaugeUsercontrol, 10000, 0, 10);
+
+            tempGraph = new GraphGauge("Temperature", "°C", yellowColorBrush, grayColorBrush, lightGrayColorBrush, grayColorBrush, 16, robotoFontFamily, 0, 30, 0, 50, "Timespan (s)", "Temperature (°C)", TemperatureChartUserControl);
+
+
+            gauges.Add(uvIndexGauge);
+            gauges.Add(humidityGauge);
+            gauges.Add(co2Gauge);
+            gauges.Add(lightGauge);
+            gauges.Add(tempGraph);
         }
     }
 }

@@ -20,10 +20,10 @@ namespace WeatherStation
             licht
         }
 
-        private MeasurementTypes type;
-        private string unit;
-        private double value;
-        private DateTime dateTimeOfMeasurement;
+        protected MeasurementTypes type;
+        protected string unit;
+        protected double value;
+        protected DateTime dateTimeOfMeasurement;
 
         public MeasurementTypes Type
         {

@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="WeatherStation.Gauge">
+    <Position X="5.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQCAIAAAgCgAgACIAAgAgQAIAAEAAAAIAAAACAAAgA=</HashCode>
+      <FileName>Classes\Gauges\Gauge.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeatherStation.HorizontalGauge">
+    <Position X="9.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\Gauges\HorizontalGauge.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeatherStation.MultiDataGauge">
+    <Position X="3.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\Gauges\MultiDataGauge.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeatherStation.SingleDataGauges">
+    <Position X="7.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>RAAEIAAAIAAAAEgAAAAIAAAAYAEAACAIBAAoAEAAAAQ=</HashCode>
+      <FileName>Classes\Gauges\SingleDataGauges.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeatherStation.VerticalGauge">
+    <Position X="9.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\Gauges\VerticalGauge.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeatherStation.UVIndexGauge">
+    <Position X="9.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\Gauges\UVIndexGauge.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

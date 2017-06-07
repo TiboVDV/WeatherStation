@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WeatherStation"
         mc:Ignorable="d"
-        Title="Weatherstation" Height="670.232" Width="1321.386" Loaded="Window_Loaded" WindowState="Maximized">
+        Title="Weatherstation" Height="670.232" Width="1321.386" Loaded="Window_Loaded" WindowState="Maximized" Closing="Window_Closing">
     <Grid Background="#FFE6E6E6">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20*"/>

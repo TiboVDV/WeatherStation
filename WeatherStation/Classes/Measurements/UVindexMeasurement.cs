@@ -8,9 +8,9 @@ namespace WeatherStation
 {
     public class UVindexMeasurement : Measurement
     {
-        public UVindexMeasurement(string unit, double value) : base(MeasurementTypes.uvindex, unit, value)
+        public UVindexMeasurement(string unit, double value) : base(MeasurementTypes.uvindex, unit, Math.Round(value, 0))
         {
-
+            
         }
 
         public override string ToString()

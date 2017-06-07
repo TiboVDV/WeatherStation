@@ -8,9 +8,10 @@
              mc:Ignorable="d" 
              d:DesignHeight="657" d:DesignWidth="1068">
     <Grid Initialized="Grid_Initialized">
-        <Canvas x:Name="TemperatureGaugeUsercontrol" HorizontalAlignment="Left" Height="349" Margin="10,10,0,0" VerticalAlignment="Top" Width="184"/>
-        <Canvas x:Name="UVIndexUsercontrol" HorizontalAlignment="Left" Height="475" Margin="199,10,0,0" VerticalAlignment="Top" Width="184"/>
-        <Canvas x:Name="TemperatureHorizontalGaugeUsercontrol" HorizontalAlignment="Left" Height="82" Margin="388,10,0,0" VerticalAlignment="Top" Width="670"/>
-
+        <Canvas x:Name="UVIndexGaugeUsercontrol" HorizontalAlignment="Left" Height="300" Margin="10,10,0,0" VerticalAlignment="Top" Width="300"/>
+        <Canvas x:Name="HumidityGaugeUsercontrol" HorizontalAlignment="Left" Height="500" Margin="315,10,0,0" VerticalAlignment="Top" Width="150"/>
+        <Canvas x:Name="CO2GaugeUsercontrol" HorizontalAlignment="Left" Height="500" Margin="465,10,0,0" VerticalAlignment="Top" Width="150"/>
+        <Canvas x:Name="LightGaugeUsercontrol" HorizontalAlignment="Left" Height="500" Margin="10,315,0,-158" VerticalAlignment="Top" Width="300"/>
+        <Canvas x:Name="TemperatureChartUserControl" Height="500" Margin="615,10,-149,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="602"/>
     </Grid>
 </UserControl>

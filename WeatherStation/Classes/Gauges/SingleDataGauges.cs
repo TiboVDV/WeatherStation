@@ -17,7 +17,7 @@ namespace WeatherStation
         protected double currentValue = 0;//Huidige waarde van de gauge
         protected double topMargin = 30;//Margin van de gauge aan de bovenkant/linkerkant
         protected double bottomMargin = 30;//Margin van de gauge aan de onderkant/rechterkant
-        protected double gaugeWidth = 20;//De breedte van de gauge
+        protected double gaugeWidth = 25;//De breedte van de gauge
         protected int gridMajorLinesAmount = 10;//Aantal gridlines
         protected Canvas parentGrid;//Parent waarop getekend wordt
 
