@@ -1,0 +1,40 @@
+﻿<Window x:Class="WeatherStation.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WeatherStation"
+        mc:Ignorable="d"
+        Title="Weatherstation" Height="670.232" Width="1321.386" Loaded="Window_Loaded" WindowState="Maximized">
+    <Grid Background="#FFE6E6E6">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="80*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Background="White">
+            <Grid.Effect>
+                <DropShadowEffect Color="Gray" Opacity="0.2" Direction="0"/>
+            </Grid.Effect>
+            <Grid x:Name="weatherStationSelector" Height="60" VerticalAlignment="Top" Cursor="Hand" Background="#FF4285F4" MouseLeftButtonDown="weatherStationform_MouseLeftButtonDown">
+                <Label x:Name="lblWeatherstationSelector" Content="Weatherstation" FontSize="18.667" BorderBrush="#FFB6B6B6" Background="{x:Null}" Margin="40,10,0,10" VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="Roboto" Foreground="White" Cursor="Hand"/>
+                <Border BorderBrush="#FFC5C5C5" BorderThickness="0,0,0,1" Cursor="Hand"/>
+            </Grid>
+            <Grid x:Name="portConnectionSelector" Height="60" VerticalAlignment="Top" Margin="0,60,0,0" Cursor="Hand" MouseLeftButtonDown="portConnectionForm_MouseLeftButtonDown">
+                <Label x:Name="lblPortConnection" Content="Port Connection" FontSize="18.667" BorderBrush="#FFB6B6B6" Background="{x:Null}" Margin="40,10,0,10" VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="Roboto" Foreground="#FF464646" Cursor="Hand"/>
+                <Border BorderBrush="#FFC5C5C5" BorderThickness="0,0,0,1" Cursor="Hand">
+                    <Label x:Name="lblPortSatusSelector" Content="Closed" Margin="194,10,10,9" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Roboto" Foreground="#FFDB4447" Width="59" Height="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                </Border>
+            </Grid>
+            <Grid x:Name="importDataSelector" Height="60" VerticalAlignment="Top" Margin="0,120,0,0" Cursor="Hand" MouseLeftButtonDown="importDataForm_MouseLeftButtonDown">
+                <Label x:Name="lblImportData" Content="Import data" FontSize="18.667" BorderBrush="#FFB6B6B6" Background="{x:Null}" Margin="40,10,0,10" VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="Roboto" Foreground="#FF464646" Cursor="Hand"/>
+                <Border BorderBrush="#FFC5C5C5" BorderThickness="0,0,0,1" Cursor="Hand"/>
+            </Grid>
+            <Grid x:Name="exportDataSelector" Height="60" VerticalAlignment="Top" Margin="0,180,0,0" Cursor="Hand" MouseLeftButtonDown="exportDataFrom_MouseLeftButtonDown">
+                <Label x:Name="lblExportData" Content="Export data" FontSize="18.667" BorderBrush="#FFB6B6B6" Background="{x:Null}" Margin="40,10,0,10" VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="Roboto" Foreground="#FF464646" Cursor="Hand"/>
+                <Border BorderBrush="#FFC5C5C5" BorderThickness="0,0,0,1" Cursor="Hand"/>
+            </Grid>
+        </Grid>
+        <ContentPresenter x:Name="contentViewer" Grid.Column="1"/>
+
+    </Grid>
+</Window>
