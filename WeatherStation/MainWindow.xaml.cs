@@ -60,7 +60,7 @@ namespace WeatherStation
             weatherStationPage = new WeatherStationPage();
             portConnectionPage = new PortConnectionPage();
             importDataPage = new ImportDataPage();
-            exportDataPage = new ExportDataPage(this.temperatuurMeasurements);
+            exportDataPage = new ExportDataPage(this.temperatuurMeasurements, this.co2Measurements, this.infraroodstralingMeasurements, this.lichtMeasurements, this.luchtdrukMeasurements, this.luchtvochtigheidMeasurements, this.uvindexMeasurements);
 
         }
 
@@ -210,20 +210,48 @@ namespace WeatherStation
                                 string value = dataBufferLineSplit[i].Split(' ')[1].Replace('.', ',');
                                 TemperatuurMeasurement tempM = new TemperatuurMeasurement("°C", double.Parse(value));
                                 temperatuurMeasurements.Add(tempM);
-                                weatherStationPage.TemperatureGauge.CurrentValue = tempM.Value;
-                                weatherStationPage.TempGauge.CurrentValue = tempM.Value;
+                                weatherStationPage.TempGraph.AddMeasurement(tempM);
                             }
                             else if (dataBufferLineSplit[i].Contains("UV index"))
                             {
-                                /*string value = dataBufferLineSplit[i].Split(' ')[2].Replace('.', ',');
+                                string value = dataBufferLineSplit[i].Split(' ')[2].Replace('.', ',');
                                 UVindexMeasurement uvindexM = new UVindexMeasurement("", double.Parse(value));
-
-                                weatherStationPage.UVGauge.CurrentValue = uvindexM.Value;*/
+                                uvindexMeasurements.Add(uvindexM);
+                                weatherStationPage.UVIndexGauge.CurrentValue = uvindexM.Value;
+                            }
+                            else if (dataBufferLineSplit[i].Contains("Humidity"))
+                            {
+                                string value = dataBufferLineSplit[i].Split(' ')[1].Replace('.', ',');
+                                LuchtvochtigheidMeasurement lvm = new LuchtvochtigheidMeasurement("%", double.Parse(value));
+                                luchtvochtigheidMeasurements.Add(lvm);
+                                weatherStationPage.HumidityGauge.CurrentValue = lvm.Value;
+                            } else if (dataBufferLineSplit[i].Contains("CO2"))
+                            {
+                                string value = dataBufferLineSplit[i].Split(' ')[1].Replace('.', ',');
+                                CO2Measurement co2M = new CO2Measurement("ppm", double.Parse(value));
+                                co2Measurements.Add(co2M);
+                                weatherStationPage.CO2Gauge.CurrentValue = co2M.Value;
+                            } else if (dataBufferLineSplit[i].Contains("Visible"))
+                            {
+                                string value = dataBufferLineSplit[i].Split(' ')[2].Replace('.', ',');
+                                LichtMeasurement lM = new LichtMeasurement("lx", double.Parse(value));
+                                lichtMeasurements.Add(lM);
+                                weatherStationPage.LightGauge.CurrentValue = lM.Value;
+                            } else if (dataBufferLineSplit[1].Contains("Infrared radiation"))
+                            {
+                                string value = dataBufferLineSplit[i].Split(' ')[2].Replace('.', ',');
+                                InfraroodstralingMeasurement irM = new InfraroodstralingMeasurement("W/m^2", double.Parse(value));
+                                infraroodstralingMeasurements.Add(irM);
+                            } else if (dataBufferLineSplit[i].Contains("Pressure"))
+                            {
+                                string value = dataBufferLineSplit[i].Split(' ')[1].Replace('.', ',');
+                                LuchtdrukMeasurement ldM = new LuchtdrukMeasurement("Pa", double.Parse(value));
+                                luchtdrukMeasurements.Add(ldM);
                             }
 
                         } catch(Exception ex)
                         {
-                            MessageBox.Show(ex.Message);
+                            //MessageBox.Show(ex.Message);
                         }
                         
                     }
@@ -247,6 +275,11 @@ namespace WeatherStation
                 }
                 
             }
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            portConnectionPage.Port.Close();
         }
     }
 }
