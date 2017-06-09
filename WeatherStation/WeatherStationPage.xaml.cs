@@ -72,7 +72,7 @@ namespace WeatherStation
         public WeatherStationPage()
         {
             InitializeComponent();
-            DrawingTimer.Interval = new TimeSpan(0, 0, 0, 0, 1 / 60);
+            DrawingTimer.Interval = new TimeSpan(0, 0, 0, 0, 10);
             DrawingTimer.Tick += DrawingTimer_Tick;
 
             DrawingTimer.Start();

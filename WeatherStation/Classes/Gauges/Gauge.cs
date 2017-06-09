@@ -11,12 +11,12 @@ namespace WeatherStation
     {
         protected string name;//Naam van de gauge
         protected string unit;//Eenheid van de gauge
-        protected SolidColorBrush foreGround;
-        protected SolidColorBrush backGround;
-        protected SolidColorBrush gridColor;
-        protected SolidColorBrush fontColor;
-        protected int fontSize;
-        protected FontFamily fontFamilyGauge;
+        protected SolidColorBrush foreGround; //Kleur van de voorgrond van de gauge
+        protected SolidColorBrush backGround; //Kleur van de achtergrond
+        protected SolidColorBrush gridColor; //Kleur van de grid
+        protected SolidColorBrush fontColor; //Kleur van de tekst
+        protected int fontSize; //Grootte van de tekst
+        protected FontFamily fontFamilyGauge; //Font van de tekst
 
         //Getters en Setters
         public string Name { get { return name; } }

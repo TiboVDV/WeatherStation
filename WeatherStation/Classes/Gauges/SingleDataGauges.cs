@@ -86,21 +86,23 @@ namespace WeatherStation
 
             for (int i = 0; i < (gridMajorLinesAmount + 1); i++)
             {
-                Line line = new Line();
-                line.Stroke = gridColor;
-                line.StrokeThickness = 2;
-
+                Line line = new Line()
+                {
+                    Stroke = gridColor,
+                    StrokeThickness = 2
+                };
                 horizontalMajorGridLines.Add(line);
             }
 
             for (int i = 0; i < (gridMajorLinesAmount + 1); i++)
             {
-                TextBlock textB = new TextBlock();
-                textB.Text = ((maxValue - minValue) / (gridMajorLinesAmount) * i).ToString();
-                textB.FontSize = fontSize - 2;
-                textB.FontFamily = fontFamilyGauge;
-                textB.TextAlignment = System.Windows.TextAlignment.Justify;
-
+                TextBlock textB = new TextBlock()
+                {
+                    Text = ((maxValue - minValue) / (gridMajorLinesAmount) * i).ToString(),
+                    FontSize = fontSize - 2,
+                    FontFamily = fontFamilyGauge,
+                    TextAlignment = System.Windows.TextAlignment.Justify
+                };
                 gridLabels.Add(textB);
             }
         }

@@ -55,10 +55,23 @@ namespace WeatherStation
             for (int i = 0; i < (gridMajorLinesAmount + 1); i++)
             {
                 parentGrid.Children.Add(gridLabels[i]);
-                Canvas.SetLeft(gridLabels[i], parentGrid.Width / 2 - 40);
-                Canvas.SetTop(gridLabels[i], -i * backGroundRectangle.Height / (gridMajorLinesAmount) + backGroundRectangle.Height + topMargin - 7);
+
+                gridLabels[i].Loaded += UpdateGridLabelsWhenLoaded;
             }
 
+        }
+
+        private void UpdateGridLabelsWhenLoaded(object sender, EventArgs e)
+        {
+            for (int i = 0; i < (gridMajorLinesAmount + 1); i++)
+            {
+
+                gridLabels[i].RenderTransformOrigin = new System.Windows.Point(gridLabels[i].ActualWidth, gridLabels[i].ActualHeight);
+
+                Canvas.SetLeft(gridLabels[i], parentGrid.Width / 2 - gridLabels[i].ActualWidth - gaugeWidth/2 - 5);
+                Canvas.SetTop(gridLabels[i], -i * backGroundRectangle.Height / (gridMajorLinesAmount) + backGroundRectangle.Height + topMargin - gridLabels[i].ActualHeight/2);
+            }
+            
         }
 
         public override void Update()
